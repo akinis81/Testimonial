@@ -3,14 +3,12 @@ class Main {
     constructor(testimonials){
         this.testimonials = testimonials;
         this.list = '';
-        
-        
         this.init();
     }
 
     init(){
         this.generateHtml();
-
+        this.addEvent();
     }
 
     generateHtml(){
@@ -31,22 +29,17 @@ class Main {
             pointsHtml +=`<span class="dot" data-dot="${i+1}"></span>`;
         }
         document.querySelector('.points').insertAdjacentHTML('afterbegin',pointsHtml)
+    }
 
-        /**
+    addEvent(){
+                /**
          * Set styles
          */
         this.list.style.width = 100*this.testimonials.length +'%';        
         const singleClass = document.querySelectorAll('.single');
         for (let j = 0; j < singleClass.length; j++) {
             singleClass[j].style.width = 100/singleClass.length +'%';  
-            // console.log(singleClass[j]);
-            
         }
-
-
-
-
-
 
         const dot = document.querySelectorAll('.dot');
         for (const iterator of dot) {
@@ -61,12 +54,10 @@ class Main {
                  * testimonials transform to left
                  */
                 let degreelist = 100 / (this.testimonials.length) * iterator.dataset.dot; 
-                console.log(degreelist);                
                 this.list.style.transform = `translateX(-${degreelist}%)`;     
 
         });
     }
-
-    }
+    };
 }
 new Main(testimonials);
