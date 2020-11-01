@@ -1,9 +1,11 @@
 import {testimonials} from '../data/data.js';
+
 class Main {
     constructor(testimonials){
         this.testimonials = testimonials;
         this.list = '';
         this.init();
+ 
     }
 
     init(){
@@ -45,7 +47,7 @@ class Main {
 
         const dot = document.querySelectorAll('.dot');
         for (const iterator of dot) {
-            iterator.addEventListener('swiped-left', () => {
+            iterator.addEventListener('click', () => {
                 /**
                  * creating active .dot
                  */
@@ -60,6 +62,6 @@ class Main {
 
         });
     }
-    };
+}
 }
 new Main(testimonials);
