@@ -28,11 +28,9 @@ class Main {
         for (let i = 0; i < this.testimonials.length-1; i++) {
             pointsHtml +=`<span class="dot" data-dot="${i+1}"></span>`;
         }
-        document.querySelector('.points').insertAdjacentHTML('afterbegin',pointsHtml)
-    }
+        document.querySelector('.points').insertAdjacentHTML('afterbegin',pointsHtml);
 
-    addEvent(){
-                /**
+                    /**
          * Set styles
          */
         this.list.style.width = 100*this.testimonials.length +'%';        
@@ -40,10 +38,14 @@ class Main {
         for (let j = 0; j < singleClass.length; j++) {
             singleClass[j].style.width = 100/singleClass.length +'%';  
         }
+    }
+
+    addEvent(){
+    
 
         const dot = document.querySelectorAll('.dot');
         for (const iterator of dot) {
-            iterator.addEventListener('click', () => {
+            iterator.addEventListener('swiped-left', () => {
                 /**
                  * creating active .dot
                  */
